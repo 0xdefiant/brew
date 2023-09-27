@@ -4,18 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Suggester</title>
+    <style>
+        .loader {
+            border: 10px solid #f3f3f3; /* Light grey */
+            border-top: 10px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            display: none; /* By default, the loader is hidden */
+        }
+    
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>    
 </head>
 <body>
     <h2>Beer Recipe Suggester</h2>
     <p>Enter the ingredients you have:</p>
     <textarea id="ingredients" rows="4" cols="50"></textarea><br><br>
     <button onclick="getSuggestion()">Get Recipe Suggestion</button>
-
+    
+    <div id="loader" class="loader"></div>
     <h3>Suggestion:</h3>
     <p id="suggestion"></p>
 
     <script>
         async function getSuggestion() {
+            // Show the loader
+            document.getElementById("loader").style.display = "block";
+
             const ingredients = document.getElementById("ingredients").value.split(",");
             const response = await fetch('/get-recipe', {
                 method: 'POST',
@@ -25,8 +45,13 @@
                 body: JSON.stringify({ ingredients: ingredients }),
             });
             const data = await response.json();
+
+            // Hide the loader
+            document.getElementById("loader").style.display = "none";
+
             document.getElementById("suggestion").innerText = data.suggestion;
         }
+
     </script>
 </body>
 </html>

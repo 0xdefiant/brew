@@ -27,7 +27,7 @@ def get_recipe():
     }
     user_message = {
         "role": "user",
-        "content": f"I have the following ingredients: {ingredients_str}. What's a potential beer recipe or modification I can make with these?"
+        "content": f"I have the following ingredients: {ingredients_str}. What's a potential beer recipe I can make with these?"
     }
 
     response = openai.ChatCompletion.create(
