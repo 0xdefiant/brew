@@ -2,11 +2,11 @@
 # Beer Recipe Assistant
 
 ## Overview
-This Python application is a personal project developed for my dad, who recently retired and started to brew beer as a hobby. I created this basic script to help him easily generate beer recipes using the ingredients he has on hand. It leverages OpenAI's GPT-3.5 model to suggest creative and practical beer recipes.
+This Python application is a personal project developed for my dad, who recently retired and started to brew beer as a hobby. I created this basic script to help him easily generate beer recipes using the ingredients he has on hand. It leverages OpenAI to suggest creative and practical beer recipes.
 
 ## Features
 - **Web Interface**: A simple Flask web application where users can input their available ingredients.
-- **AI-Powered Recipe Suggestions**: Utilizes OpenAI's GPT-3.5 to generate beer recipes based on the given ingredients.
+- **AI-Powered Recipe Suggestions**: Utilizes OpenAI to generate beer recipes based on the given ingredients.
 
 ## How It Works
 1. **Home Page**: The user is presented with a form to enter the ingredients they have.
